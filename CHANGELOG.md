@@ -5,6 +5,8 @@ Format follows Keep a Changelog; versions follow Semantic Versioning.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-06
+
 ### Added
 - `deprecation` check: scans custom code (web/modules/custom, themes,
   profiles) for deprecated Drupal APIs using nikic/php-parser against a
@@ -42,5 +44,6 @@ FIRST PUBLIC RELEASE
   false positives); the deprecated-API scan is on the roadmap.
 - Security data is read live from drupal.org and is never bundled.
 
-[Unreleased]: https://github.com/sumvee/drupalens/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/sumvee/drupalens/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/sumvee/drupalens/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/sumvee/drupalens/releases/tag/v0.1.0
