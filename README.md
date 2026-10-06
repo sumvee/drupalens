@@ -16,18 +16,26 @@ on any Drupal repo with no database and no bootstrap. Security and
 outdated-module data is read live from the drupal.org release-history API
 and cross-checked against Packagist advisories (never bundled stale).
 
+## Checks
+
+```
+  security  each drupal.org project vs the live release-history API:
+            a newer SECURITY release -> critical (SEC001)
+            a newer stable release   -> medium   (UPD001)
+  support   end-of-life core majors 7/8/9 (EOL001); contrib projects
+            marked unsupported on drupal.org (EOL002)
+  hygiene   abandoned Composer packages, with replacement hints (HYG001)
+```
+
+Run one with `--only=security|support|hygiene`. Findings carry stable IDs,
+a severity, and a one-line fix. `--fail-on=<severity>` (default `high`)
+sets the CI exit gate; `--cache <dir>` reuses drupal.org responses.
+
 ## Status
 
-Pre-release, in active development. PHP 8.1+, Symfony Console. Apache-2.0.
-
-```
-WAVE 0  skeleton ................. in progress
-WAVE 1  project model (loader) ... next
-WAVE 2  drupal.org + Packagist data layer
-WAVE 3  checks: security, support, hygiene
-WAVE 4  prioritized report + --json + exit codes
-WAVE 5  release (Packagist + PHAR via Box + CI)
-```
+Working, pre-1.0. PHP 8.1+, Symfony Console, Apache-2.0. Roadmap: a
+deprecated-API scan for custom code, branch-level support, and a `--live`
+mode for config drift.
 
 ## Install (once released)
 

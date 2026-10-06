@@ -1,0 +1,42 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  phar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: box
+          coverage: none
+
+      - name: Install runtime dependencies
+        run: composer install --no-interaction --prefer-dist --no-dev --optimize-autoloader
+
+      - name: Stamp version from the tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          sed -i "s/0\.0\.0-dev/${VERSION}/" src/Version.php
+
+      - name: Build PHAR
+        run: box compile
+
+      - name: Publish release with the PHAR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" drupalens.phar \
+            --title "${GITHUB_REF_NAME}" \
+            --notes "See CHANGELOG.md for details."
+
+# Packagist publishes automatically on new tags via its GitHub webhook;
+# no step is needed here once the package is submitted once.

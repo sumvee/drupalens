@@ -1,0 +1,7 @@
+{
+    "main": "bin/drupalens",
+    "output": "drupalens.phar",
+    "compression": "GZ",
+    "banner": "drupalens (https://github.com/sumvee/drupalens) - Apache-2.0 - Sumit Vig",
+    "exclude-composer-files": true
+}
