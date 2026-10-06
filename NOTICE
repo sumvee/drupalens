@@ -1,0 +1,22 @@
+drupalens
+Copyright 2026 Sumit Vig
+
+This product includes software developed by Sumit Vig.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+
+-------------------------------------------------------------------------------
+Data sources (queried at runtime, not embedded)
+-------------------------------------------------------------------------------
+
+Module release and security data is read live from:
+  - drupal.org release-history API  (https://updates.drupal.org)
+  - Packagist security advisories   (https://packagist.org)
+
+These are queried at audit time; no advisory data is bundled in this tool
+(a bundled security snapshot would go stale and give false assurance). The
+end-of-life / branch-support logic and the rule set are drupalens's own.
+
+"Drupal" is a registered trademark of Dries Buytaert. "drupalens" is an
+independent tool that audits Drupal codebases; it is not affiliated with or
+endorsed by the Drupal project or the Drupal Association.

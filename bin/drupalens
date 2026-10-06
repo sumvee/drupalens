@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+// Resolve the autoloader whether run from source or as a Composer dependency.
+(static function (): void {
+    $candidates = [
+        __DIR__ . '/../vendor/autoload.php',       // from source
+        __DIR__ . '/../../../autoload.php',         // installed as a dependency
+    ];
+    foreach ($candidates as $file) {
+        if (is_file($file)) {
+            require $file;
+            return;
+        }
+    }
+    fwrite(STDERR, "drupalens: dependencies not installed; run 'composer install'\n");
+    exit(1);
+})();
+
+use Drupalens\Command\AuditCommand;
+use Drupalens\Version;
+use Symfony\Component\Console\Application;
+
+$app = new Application('drupalens', Version::VALUE);
+$app->add(new AuditCommand());
+$app->run();
