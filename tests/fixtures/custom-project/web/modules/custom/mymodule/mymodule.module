@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Test fixture: a custom module using deprecated Drupal APIs.
+ */
+
+function mymodule_notify() {
+  drupal_set_message('Saved.');
+  $now = REQUEST_TIME;
+  $url = \Drupal::url('entity.node.canonical');
+  $rows = db_query('SELECT 1');
+  return [$now, $url, $rows];
+}

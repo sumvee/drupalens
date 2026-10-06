@@ -25,6 +25,10 @@ and cross-checked against Packagist advisories (never bundled stale).
   support   end-of-life core majors 7/8/9 (EOL001); contrib projects
             marked unsupported on drupal.org (EOL002)
   hygiene   abandoned Composer packages, with replacement hints (HYG001)
+  deprecation  custom code (web/modules/custom, themes, profiles) vs a
+               curated map of deprecated Drupal APIs (DEP001): High when a
+               symbol is already removed in your core, Medium if only
+               deprecated
 ```
 
 Run one with `--only=security|support|hygiene`. Findings carry stable IDs,
@@ -33,9 +37,9 @@ sets the CI exit gate; `--cache <dir>` reuses drupal.org responses.
 
 ## Status
 
-Working, pre-1.0. PHP 8.1+, Symfony Console, Apache-2.0. Roadmap: a
-deprecated-API scan for custom code, branch-level support, and a `--live`
-mode for config drift.
+Working, pre-1.0. PHP 8.1+, Symfony Console, Apache-2.0. Roadmap:
+branch-level contrib support, a `--live` mode for config drift, and a
+larger deprecation map.
 
 ## Install (once released)
 

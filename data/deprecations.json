@@ -1,0 +1,14 @@
+[
+  {"symbol": "drupal_set_message", "kind": "function", "deprecated_in": "8.5.0", "removed_in": "9.0.0", "replacement": "\\Drupal::messenger()->addMessage()"},
+  {"symbol": "db_query", "kind": "function", "deprecated_in": "8.0.0", "removed_in": "9.0.0", "replacement": "\\Drupal::database()->query()"},
+  {"symbol": "entity_load", "kind": "function", "deprecated_in": "8.0.0", "removed_in": "9.0.0", "replacement": "\\Drupal::entityTypeManager()->getStorage($type)->load($id)"},
+  {"symbol": "format_date", "kind": "function", "deprecated_in": "8.0.0", "removed_in": "9.0.0", "replacement": "\\Drupal::service('date.formatter')->format()"},
+  {"symbol": "drupal_render", "kind": "function", "deprecated_in": "8.0.0", "removed_in": "9.0.0", "replacement": "\\Drupal::service('renderer')->render()"},
+  {"symbol": "file_prepare_directory", "kind": "function", "deprecated_in": "8.7.0", "removed_in": "9.0.0", "replacement": "\\Drupal::service('file_system')->prepareDirectory()"},
+  {"symbol": "node_load", "kind": "function", "deprecated_in": "8.0.0", "removed_in": "9.0.0", "replacement": "\\Drupal\\node\\Entity\\Node::load()"},
+  {"symbol": "user_load", "kind": "function", "deprecated_in": "8.0.0", "removed_in": "9.0.0", "replacement": "\\Drupal\\user\\Entity\\User::load()"},
+  {"symbol": "drupal_get_path", "kind": "function", "deprecated_in": "9.3.0", "removed_in": "10.0.0", "replacement": "\\Drupal::service('extension.path.resolver')->getPath($type, $name)"},
+  {"symbol": "REQUEST_TIME", "kind": "constant", "deprecated_in": "8.3.0", "removed_in": "9.0.0", "replacement": "\\Drupal::time()->getRequestTime()"},
+  {"symbol": "Drupal::url", "kind": "staticmethod", "deprecated_in": "8.0.0", "removed_in": "9.0.0", "replacement": "\\Drupal\\Core\\Url::fromRoute() or Url::fromUri()"},
+  {"symbol": "Unicode::strlen", "kind": "staticmethod", "deprecated_in": "8.6.0", "removed_in": "10.0.0", "replacement": "mb_strlen()"}
+]

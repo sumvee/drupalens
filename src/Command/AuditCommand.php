@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupalens\Command;
 
 use Drupalens\Audit\Auditor;
+use Drupalens\Check\DeprecationCheck;
 use Drupalens\Check\HygieneCheck;
 use Drupalens\Check\SecurityCheck;
 use Drupalens\Check\SupportCheck;
@@ -48,7 +49,7 @@ final class AuditCommand extends Command
             return Command::INVALID;
         }
 
-        $auditor = new Auditor(new SecurityCheck(), new SupportCheck(), new HygieneCheck());
+        $auditor = new Auditor(new SecurityCheck(), new SupportCheck(), new HygieneCheck(), new DeprecationCheck());
 
         $only = $input->getOption('only');
         if ($only !== null && !in_array($only, $auditor->ids(), true)) {

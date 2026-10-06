@@ -5,6 +5,13 @@ Format follows Keep a Changelog; versions follow Semantic Versioning.
 
 ## [Unreleased]
 
+### Added
+- `deprecation` check: scans custom code (web/modules/custom, themes,
+  profiles) for deprecated Drupal APIs using nikic/php-parser against a
+  curated deprecation map (data/deprecations.json). Reports DEP001, High
+  when the symbol is already removed in the installed core major and
+  Medium when only deprecated. Added nikic/php-parser as a dependency.
+
 ## [0.1.0]
 
 ```

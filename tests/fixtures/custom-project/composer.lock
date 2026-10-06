@@ -1,0 +1,7 @@
+{
+    "_readme": ["test fixture: core only, custom module carries the deprecations"],
+    "packages": [
+        {"name": "drupal/core", "version": "10.3.6", "type": "drupal-core"}
+    ],
+    "packages-dev": []
+}
